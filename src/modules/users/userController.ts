@@ -58,7 +58,7 @@ const registerUser = async (
       username: user.username,
       email: user.email,
       created: user.createdAt,
-      token: generateToken(user.id),
+      token: await generateToken(user.id),
     };
 
     if (user) {
@@ -92,7 +92,7 @@ const authenticateUser = async (
       id: user.id,
       username: user.username,
       email: user.email,
-      token: generateToken(user.id),
+      token: await generateToken(user.id),
     };
 
     if (user && hashPassword) {

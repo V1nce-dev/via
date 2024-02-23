@@ -16,6 +16,8 @@ export const posts = pgTable("posts", {
   content: varchar("content", { length: 280 }).notNull(),
   image_url: varchar("image_url", { length: 255 }),
   createdAt: timestamp("created_at").defaultNow(),
+  deletedAt: timestamp("deleted_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 export const comments = pgTable("comments", {
@@ -26,6 +28,7 @@ export const comments = pgTable("comments", {
   userId: uuid("user_id").notNull(),
   content: varchar("content", { length: 255 }).notNull(),
   createdAt: timestamp("created_at").defaultNow(),
+  deletedAt: timestamp("deleted_at").defaultNow(),
 });
 
 export const likes = pgTable("likes", {
